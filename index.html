@@ -81,11 +81,11 @@
 
   <section class="contact" id="contact">
     <h2>Let's work together!</h2>
-    <form id="contact-form" action="https://formsubmit.co/victor@vidsbyvic.com" method="POST">
-      <input type="hidden" name="_subject" value="New message from VidsByVic.com">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://vidsbyvic.com/thanks/">
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="d87d5b63-615f-45db-a394-ddff4c12c7cf">
+      <input type="hidden" name="subject" value="New message from VidsByVic.com">
+      <input type="hidden" name="from_name" value="VidsByVic.com">
+      <input type="hidden" name="redirect" value="https://vidsbyvic.com/thanks/">
       <label for="f-name">Name</label>
       <input id="f-name" name="name" required>
       <label for="f-email">Email Address</label>
@@ -94,7 +94,7 @@
       <input id="f-phone" name="phone" type="tel">
       <label for="f-msg">What can we help you with?</label>
       <textarea id="f-msg" name="message" required></textarea>
-      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
+      <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
       <div class="form-actions"><button class="btn" type="submit">Submit</button></div>
       <p class="form-note" id="form-note" aria-live="polite"></p>
     </form>
@@ -159,6 +159,18 @@ document.querySelector('.slider .prev').onclick=()=>{go(cur-1);restart()};
 document.querySelector('.slider .next').onclick=()=>{go(cur+1);restart()};
 go(0);restart();
 
+document.getElementById('contact-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const f=e.target,note=document.getElementById('form-note'),btn=f.querySelector('button');
+  btn.disabled=true;note.textContent='Sending...';
+  const c=new AbortController();const t=setTimeout(()=>c.abort(),15000);
+  try{
+    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f),signal:c.signal});
+    const j=await r.json();if(!j.success)throw 0;
+    location.href='/thanks/';
+  }catch(_){note.textContent='Something went wrong. Please email victor@vidsbyvic.com.';btn.disabled=false}
+  clearTimeout(t);
+});
 </script>
 </body>
 </html>
