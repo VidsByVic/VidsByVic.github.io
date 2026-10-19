@@ -23,8 +23,8 @@ a{color:inherit}
 
 /* Hero */
 .hero{position:relative;min-height:300px;display:grid;place-items:center;text-align:center;color:#fff;
-  background:#1a1a1a url(/images/hero.png) center/cover no-repeat;padding:60px 16px}
-.hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45)}
+  background:#1a1a1a url(/images/proposals.jpg) center/cover no-repeat;padding:60px 16px}
+.hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6)}
 .hero>*{position:relative}
 .hero h1{font-family:var(--head);font-weight:400;font-size:clamp(40px,7vw,62px);margin:0;letter-spacing:.5px}
 .hero p{font-size:clamp(20px,3vw,30px);margin:14px 0 0;font-weight:300}
