@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home | Vids By Vic</title>
+<meta name="description" content="Vids By Vic — Producing Your Imagination. Scripting, filming, and editing for nonprofits, businesses, families, and proposals.">
+<meta property="og:title" content="Vids By Vic">
+<meta property="og:description" content="Producing Your Imagination">
+<meta property="og:image" content="https://www.vidsbyvic.com/images/og.png">
+<meta property="og:url" content="https://www.vidsbyvic.com">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Russo+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="./"><img class="logo" src="images/logo.png" alt="Vids By Vic"></a>
+  <nav class="site-nav">
+    <a href="./" aria-current="page">Home</a>
+    <a href="connect/">Connect</a>
+    <a href="press/">Press</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <div>
+      <h1>Vids By Vic</h1>
+      <p>Producing Your Imagination</p>
+    </div>
+  </div>
+
+  <section class="mission">
+    <div class="wrap">
+      <h2>Mission Statement</h2>
+      <p>Storytelling is a powerful way to communicate our emotions. We help you tell your story by creating a seamless experience through scripting, filming, and editing. At Vids By Vic, we create stellar films.</p>
+    </div>
+  </section>
+
+
+  <section class="testimonials">
+    <h2>Testimonials</h2>
+    <p class="sub">What some of our recent clients have been saying:</p>
+    <svg class="quote-mark" viewBox="0 0 80 72" fill="none" stroke="#fff" stroke-width="3" aria-hidden="true">
+      <path d="M4 3h30v32c0 17-10 28-26 33l-2-4c9-4 14-11 14-20H4z"/>
+      <path d="M46 3h30v32c0 17-10 28-26 33l-2-4c9-4 14-11 14-20H46z"/>
+    </svg>
+    <div class="slider" id="slider" aria-roledescription="carousel">
+      <button class="prev" aria-label="Previous">&#8249;</button>
+      <div id="slides"></div>
+      <button class="next" aria-label="Next">&#8250;</button>
+    </div>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <section class="services">
+    <div class="service dark corporate"><div>
+      <h2>Corporate</h2>
+      <p>Let us partner with you in creating videos that helps raise awareness of your brand, bringing your business to the next level.</p>
+    </div></div>
+    <div class="service blue nonprofit"><div>
+      <h2>Non Profits</h2>
+      <p>Together, we will produce films of your organization that help it finally get the recognition it deserves.</p>
+    </div></div>
+    <div class="service light family"><div>
+      <h2>Family</h2>
+      <p>Every family has a unique story that we can document and preserve for future generations.</p>
+    </div></div>
+    <div class="service dark proposals"><div>
+      <h2>Proposals</h2>
+      <p>When you're ready to pop the question, give us a ring so we can help capture your special moment for you to relive over and over again.</p>
+    </div></div>
+  </section>
+
+  <section class="more">
+    <h2>And so much more...</h2>
+    <p>If you have an idea for any type of video, contact us, so we can help you produce your imagination.</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Let's work together!</h2>
+    <form id="contact-form">
+      <label for="f-name">Name</label>
+      <input id="f-name" name="name" required>
+      <label for="f-email">Email Address</label>
+      <input id="f-email" name="email" type="email" required>
+      <label for="f-phone">Phone Number</label>
+      <input id="f-phone" name="phone" type="tel">
+      <label for="f-msg">What can we help you with?</label>
+      <textarea id="f-msg" name="message" required></textarea>
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
+      <div class="form-actions"><button class="btn" type="submit">Submit</button></div>
+      <p class="form-note" id="form-note" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <strong>Vids By Vic</strong>
+  <a class="ig" href="https://www.instagram.com/vids_by_vic" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#111"/></svg>
+    <span style="text-decoration:underline">@Vids_By_Vic</span>
+  </a>
+  <p><a href="mailto:victor@vidsbyvic.com">victor@vidsbyvic.com</a></p>
+  <p><a href="tel:+19178380744">(917) 838-0744</a></p>
+  <p class="copy">© All Rights Reserved</p>
+</footer>
+
+<script>
+const T=[
+["Your creativity is only matched patience and professionalism. Can’t thank you enough for your work","Sephardic Community Center"],
+["Working with Victor is clean and simple. He understands the project, is in tune with the audience, and quickly produces a high quality film. A pleasure to work with!","Magen David Yeshivah"],
+["Vids by Vic is easy, reliable and really \"gets it\" - it's a no-brainer for organizations like SBH who hope to quickly deliver a quality product to our community members.","Sephardic Bikur Holim"],
+["Victor is a true professional. He is organized, understands the needs of his clients and ultimately delivers a product based on your goals. Victor is diligent and meticulous, working closely with his clients in order to ensure their needs are met. Victor is a pleasure to work with!","Yeshivah of Flatbush"],
+["We had the pleasure of working with Vids By Vic on a series of corporate recruitment videos. Victor was professional, efficient, and friendly during filming and was great to work with throughout the editing process. We were very happy with the final videos and have received great feedback from employees and potential candidates. We highly recommend him and his team – and hope to work with them again soon!","VCNY Home"],
+["Victor was incredibly professional throughout, had a clear vision for how to approach our video project and executed to perfection, and on time. We used his services for both archival footage, and new production and he hit a home run with both projects. I look forward to working with him again.","SAFE Foundation"],
+["Victor’s attention to the urgency of what I needed to get done quickly was amazing. He listened attentively to my needs and then added his professional expertise to put together a spectacular promotional video. His video changed my business forever!","Camp Allsport"],
+["Vic, thank you for your incredible work on our fundraising video. Needless to say, it was done to perfection, you created the perfect story line and sent our message across so fluidly. Working with you was an absolute pleasure, done with great communication, timing, and professionalism. Thank you again, and looking forward to more projects together.","Sephardic Heritage Museum"],
+["Victor's deep commitment to every project ensure's smashing success! He makes it all look so seamless and easy!","Allegra Franco Women's Bet Midrash"],
+["Vic and his team are professional and enthusiastic, which is manifested in the footage they put out. Moreover they are super easy to work with!","Albert Missry Foundation"],
+["Our recent video was professionally handled by Vids by Vic and we could not have been prouder when we presented it at the service. Victor perfectly aligned all the video interviewees, navigating individuals busy schedule to get it done right. On top of it, it was so perfect, it was all done in one draft! I would definitely use Victor again for any upcoming event we have.","Congregation Beth Torah"],
+["Working with Vids by Vic was an amazing experience. Quick, efficient and gets the job done. I would love to recommend them to everyone. It was really a pleasure. Thank you!","Yeshivat Lev Aharon"],
+["Vids By Vic handled everything from filming to editing in the most professional way. It was a completely stress free experience. Victor really understood what we were looking for and delivered an excellent and heartwarming video, in a very short amount of time.","Yad Yosef Torah Center"],
+["Victor is a true professional. Not only was the final video spectacular, but even more importantly, he made the process very seamless. He understood what we wanted for the final result and made it happen. Ask me to rate him 1 out of 10, and he gets a 20!!","Deal Sephardic Network"],
+["PROPEL needed a video for a fundraiser, and a series of marketing campaign videos that were shorter in length. Victor immediately understood the message and created a working plan that structured our project. Despite many schedule and venue changes, he kept the project on task. Victors professionalism and ability to put people at ease before the camera was exceptional. The video was the highlight of our event and our instagram marketing campaign has helped our company gain a following.","PROPEL Network"],
+["Extremely flexible and easy to work with crew, with great end results!","Unique Designs"],
+["Victor is genuine professional and a pleasure to work with.","The Well"],
+["You and your staff are professional, courteous, and easy to work with. The camerawork was extraordinary, and you showed great creativity in editing the finished piece. Our product came to life in a way that we never imagined possible! Kudos to Victor Dweck for such great work. We look forward to working with Vids by Vic again soon.","Hillel Yeshivah"],
+["Vic is a pleasure to work with. He is knowledgeable, friendly, with excellent vision. Vic brings your ideas to life! We highly recommend!","Hatzalah"],
+["Not only a creative, professional, hard working, reliable and trust worthy company, Vids by Vic makes it fun to do. Strong on ideas and problem solving and their editing and end product raises the presentation to the highest level imaginative.","Sephardic Rabbinical College"],
+["Vids by Vic took excellent and very moving video footage of our client's experiences with our organization. Thank you for being professional and easy to work with.","Morris I Franco Cancer Center"],
+["It was an absolute pleasure working with Vic. He was extremely professional throughout the entire process and has a great eye. Everything was done in a very timely manner as well!","CocoBox"],
+["Victor and his team was a pleasure to work with! Professional, patient and courteous .. all around A+","CARE for Special Needs Children"],
+["The Vids by Vic team is the New York Yankees of film. Professional, talented, and consistently producing. They turned simple interview videos into masterpieces. Not to mention - the turnaround time is incredible! 5 stars!","From The Founder"],
+["Victor understood the mission statement of our school. He was able to articulate and bring out the message in a very professional way. We had such great feedback from our constituents. I am absolutely going to recommend him for any one in need of a video!","Yeshivat Magen Abraham"],
+["Working with Vic is a fun experience. He has all the qualifications you expect from a professional company. Thanks for all your help!","Camp J.D.S.A."],
+["Vic and his team are professional and always on time. They have the necessary experience to cut through the baloney and ask the correct questions and edit properly as well as coordinate other interviewers and choreography properly.","Moreshet Yerushalayim"],
+["Vids by Vic captured it all in 1 minute. Vids by Vic is reliable and easy to work with, you know you are in great hands with Vids By Vic. Promotion video kick started my business!","Doin' It Sports"],
+["Victor (a.k.a. Vids by Vic) has always been a pleasure to work with. He always invested in the best equipment, personally involved himself in the shoot and editing, and guided us to produce the best results. We always look forward to more ideas as he continues to grow.","Tanach Study"],
+["Victor was a total professional and a pleasure to work with. The quality of his work greatly exceeded our expectations and we hope to use his services again in the near future!","Upside Basketball Camp"]
+];
+const slides=document.getElementById('slides'),dots=document.getElementById('dots');
+T.forEach(([q,w],i)=>{
+  const s=document.createElement('div');s.className='slide';
+  s.innerHTML='<p></p><cite></cite>';s.querySelector('p').textContent=q;s.querySelector('cite').textContent='- '+w;
+  slides.appendChild(s);
+  const d=document.createElement('button');d.setAttribute('aria-label','Testimonial '+(i+1));d.onclick=()=>{go(i);restart()};dots.appendChild(d);
+});
+let cur=0,timer;
+function go(i){cur=(i+T.length)%T.length;[...slides.children].forEach((s,k)=>s.classList.toggle('active',k===cur));[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===cur))}
+function restart(){clearInterval(timer);timer=setInterval(()=>go(cur+1),7000)}
+document.querySelector('.slider .prev').onclick=()=>{go(cur-1);restart()};
+document.querySelector('.slider .next').onclick=()=>{go(cur+1);restart()};
+go(0);restart();
+
+document.getElementById('contact-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const f=e.target,note=document.getElementById('form-note'),btn=f.querySelector('button');
+  btn.disabled=true;note.textContent='Sending...';
+  const data=Object.fromEntries(new FormData(f));
+  data._subject='New message from VidsByVic.com';data._template='table';
+  try{
+    const r=await fetch('https://formsubmit.co/ajax/victor@vidsbyvic.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+    if(!r.ok)throw 0;
+    f.reset();note.textContent='Thanks for submitting! We will be in touch soon.';
+  }catch(_){note.textContent='Something went wrong. Please email victor@vidsbyvic.com.'}
+  btn.disabled=false;
+});
+</script>
+</body>
+</html>
