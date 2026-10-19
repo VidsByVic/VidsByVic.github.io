@@ -68,10 +68,10 @@ h2{font-family:var(--head);font-weight:400;font-size:clamp(34px,5vw,52px);line-h
 .service.light{color:#222}.service.light::before{background:rgba(255,255,255,.6)}
 .service.light h2{color:var(--blue);text-shadow:none}
 .service.dark p,.service.blue p{text-shadow:0 1px 3px rgba(0,0,0,.6)}
-.corporate{background-image:url(/images/corporate.png)}
-.nonprofit{background-image:url(/images/nonprofit.png)}
-.family{background-image:url(/images/family.png)}
-.proposals{background-image:url(/images/proposals.png)}
+.corporate{background-image:url(/images/corporate.jpg)}
+.nonprofit{background-image:url(/images/nonprofit.jpg)}
+.family{background-image:url(/images/family.jpg)}
+.proposals{background-image:url(/images/proposals.jpg)}
 
 .more{background:var(--blue);color:#fff;text-align:center;padding:80px 16px}
 .more p{margin:40px auto 0;max-width:760px}
