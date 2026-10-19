@@ -16,3 +16,8 @@ get "$W/006df8_e9aa7563105d410c926da901e0e9818c~mv2.png" images/nj1015.png
 get "$W/006df8_34477569853846fb88f3d17882924ea9~mv2.png" images/exceed.png
 get "$W/006df8_c4837b338e8c4ba68b08fbda917fea86~mv2.png" images/millennium.png
 get "https://www.vidsbyvic.com/_files/ugd/cca785_5c8e9b2b9ecf4a0aaf89b8afc01eafeb.pdf" files/millennium-inc.pdf
+# Shrink the big banners to fast-loading JPGs
+sudo apt-get -qq install -y imagemagick >/dev/null 2>&1 || true
+for n in corporate nonprofit family proposals; do
+  convert images/$n.png -resize '1800x>' -quality 82 images/$n.jpg && rm images/$n.png && echo "shrunk $n"
+done
