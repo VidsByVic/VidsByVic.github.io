@@ -81,7 +81,11 @@
 
   <section class="contact" id="contact">
     <h2>Let's work together!</h2>
-    <form id="contact-form">
+    <form id="contact-form" action="https://formsubmit.co/victor@vidsbyvic.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from VidsByVic.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://vidsbyvic.com/thanks/">
       <label for="f-name">Name</label>
       <input id="f-name" name="name" required>
       <label for="f-email">Email Address</label>
@@ -155,19 +159,6 @@ document.querySelector('.slider .prev').onclick=()=>{go(cur-1);restart()};
 document.querySelector('.slider .next').onclick=()=>{go(cur+1);restart()};
 go(0);restart();
 
-document.getElementById('contact-form').addEventListener('submit',async e=>{
-  e.preventDefault();
-  const f=e.target,note=document.getElementById('form-note'),btn=f.querySelector('button');
-  btn.disabled=true;note.textContent='Sending...';
-  const data=Object.fromEntries(new FormData(f));
-  data._subject='New message from VidsByVic.com';data._template='table';
-  try{
-    const r=await fetch('https://formsubmit.co/ajax/victor@vidsbyvic.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
-    if(!r.ok)throw 0;
-    f.reset();note.textContent='Thanks for submitting! We will be in touch soon.';
-  }catch(_){note.textContent='Something went wrong. Please email victor@vidsbyvic.com.'}
-  btn.disabled=false;
-});
 </script>
 </body>
 </html>
