@@ -248,6 +248,7 @@ fetch('https://go.vidsbyvic.com/ig').then(r => r.json()).then(({ posts }) => {
   const tiles = posts.map(p => `<a class="tile" href="${p.url}" target="_blank" rel="noopener"><img src="${p.img}" alt="Vids By Vic on Instagram" loading="lazy">${p.video ? play : ''}</a>`).join('');
   let html = tiles; while ((html.match(/class="tile"/g) || []).length < 12) html += tiles;
   document.getElementById('track').innerHTML = html + html;
+  document.getElementById('track').style.animationDuration = (Math.max(posts.length, 8) * 5) + 's';
   document.getElementById('strip').classList.remove('empty');
 }).catch(() => {});
 
