@@ -6,7 +6,7 @@
 <title>Vids By Vic</title>
 <meta name="description" content="Vids By Vic: family history films, engagement proposals, fundraising videos for nonprofits, marketing videos for businesses, and so much more.">
 <meta property="og:title" content="Vids By Vic">
-<meta property="og:description" content="Real life storytellers.">
+<meta property="og:description" content="Producing your imagination.">
 <meta property="og:image" content="https://www.vidsbyvic.com/images/og.png">
 <meta property="og:url" content="https://www.vidsbyvic.com">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,112 +18,146 @@
   --head:'Blender Pro',system-ui,sans-serif;--body:Georgia,'Times New Roman',serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit}
 .wrap{max-width:980px;margin:0 auto;padding:0 20px}
 
 /* Header */
-header{display:flex;align-items:center;justify-content:space-between;max-width:980px;margin:0 auto;padding:18px 20px}
-header img{width:72px;height:72px;border-radius:50%}
-header nav{display:flex;gap:22px;font-family:var(--head);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
-header nav a{text-decoration:none}
-header nav a:hover{color:var(--blue)}
+header{display:flex;justify-content:center;padding:28px 20px;background:#fff;position:relative;z-index:2}
+header img{width:150px;height:150px;border-radius:50%;animation:spinIn 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes spinIn{from{opacity:0;transform:scale(.6) rotate(-90deg)}to{opacity:1;transform:none}}
 
 /* Hero */
-.hero{background:var(--ink);color:#fff;padding:72px 0 80px}
-.kicker{font-family:var(--head);font-weight:700;color:var(--blue);letter-spacing:.14em;text-transform:uppercase;font-size:15px;margin:0 0 22px}
+.hero{position:relative;background:var(--ink);color:#fff;padding:80px 0 90px;overflow:hidden}
+.hero::before{content:"";position:absolute;width:720px;height:720px;border-radius:50%;
+  background:radial-gradient(circle,rgba(60,102,164,.38),rgba(60,102,164,0) 65%);
+  top:-260px;right:-220px;animation:drift 14s ease-in-out infinite alternate;pointer-events:none}
+@keyframes drift{to{transform:translate(-320px,260px)}}
+.hero .wrap{position:relative}
+.rec{position:absolute;top:-46px;right:20px;display:flex;align-items:center;gap:8px;font-family:var(--head);font-weight:700;font-size:14px;letter-spacing:.14em;color:#c9ccd1}
+.rec i{width:10px;height:10px;border-radius:50%;background:#e0453a;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
 .hero ul{list-style:none;margin:0;padding:0;font-family:var(--head);font-weight:700;font-size:clamp(34px,6.4vw,64px);line-height:1.08;text-transform:uppercase}
-.hero li{border-bottom:1px solid rgba(255,255,255,.12);padding:6px 0}
-.hero li:last-child{color:var(--blue);border:0}
-.hero p{max-width:560px;margin:30px 0 0;color:#c9ccd1}
-.hero .cta{display:inline-block;margin-top:30px;font-family:var(--head);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:16px;color:#fff;text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:4px}
+.hero li{border-bottom:1px solid rgba(255,255,255,.12);padding:6px 0;color:rgba(255,255,255,.32);
+  transition:color .45s ease,transform .45s ease;opacity:0;transform:translateY(24px);animation:rise .7s cubic-bezier(.2,.8,.2,1) forwards}
+.hero li:last-child{border:0}
+.hero li.on{color:var(--blue);transform:translateX(14px)}
+.hero li:nth-child(1){animation-delay:.25s}.hero li:nth-child(2){animation-delay:.35s}.hero li:nth-child(3){animation-delay:.45s}.hero li:nth-child(4){animation-delay:.55s}.hero li:nth-child(5){animation-delay:.65s}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero ul.ready li{animation:none;opacity:1;transform:none}
+.hero ul.ready li.on{transform:translateX(14px)}
+.hero p{max-width:560px;margin:34px 0 0;color:#c9ccd1;opacity:0;animation:rise .8s .9s forwards}
+.cta{display:inline-block;margin-top:30px;font-family:var(--head);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:16px;color:#fff;text-decoration:none;position:relative;padding-bottom:6px;opacity:0;animation:rise .8s 1.05s forwards}
+.cta::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--blue);transform-origin:left;transition:transform .35s}
+.cta:hover::after{transform:scaleX(1.25)}
+.cta span{display:inline-block;transition:transform .3s}
+.cta:hover span{transform:translateX(6px)}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
 
 /* Sections */
-section{padding:72px 0}
-h2{font-family:var(--head);font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(30px,4.6vw,44px);line-height:1.1;margin:0 0 10px}
-.lede{color:var(--muted);margin:0 0 34px}
+section{padding:84px 0}
+h2{font-family:var(--head);font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(30px,4.6vw,44px);line-height:1.1;margin:0 0 28px}
+h2 .bar{display:block;width:0;height:4px;background:var(--blue);margin-top:12px;transition:width 1s .3s cubic-bezier(.2,.8,.2,1)}
+.in h2 .bar,h2.in .bar{width:64px}
 
 /* Form */
-#contact{border-bottom:1px solid var(--line)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 label{display:block;font-family:var(--head);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
-input,textarea{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:1px solid #c9ccd1;border-radius:4px;background:#fff;color:var(--ink)}
-input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+input,textarea{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:1px solid #c9ccd1;border-radius:4px;background:#fff;color:var(--ink);transition:border-color .25s,box-shadow .25s}
+input:focus,textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px rgba(60,102,164,.15)}
 textarea{min-height:150px;resize:vertical}
 .field{margin-bottom:18px}
 .hp{position:absolute;left:-9999px}
-button{font-family:var(--head);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:16px;background:var(--ink);color:#fff;border:0;border-radius:4px;padding:15px 34px;cursor:pointer}
-button:hover{background:var(--blue)}
+button{font-family:var(--head);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:16px;background:var(--ink);color:#fff;border:0;border-radius:4px;padding:15px 34px;cursor:pointer;transition:background .25s,transform .2s}
+button:hover{background:var(--blue);transform:translateY(-2px)}
 button[disabled]{opacity:.6;cursor:wait}
 .note{min-height:24px;margin:12px 0 0;color:#b3261e}
 #thanks{display:none}
 #thanks h2{color:var(--blue)}
+.lede{color:var(--muted);margin:-12px 0 24px}
 #cal{width:100%;height:700px;border:0;margin-top:10px}
 
-/* Instagram */
-#instagram{background:var(--soft)}
-.ig-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px}
-.ig-head a{font-family:var(--head);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:15px;text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:3px}
-.ig-frame{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.ig-frame iframe{display:block;width:100%;height:720px;border:0}
+/* Instagram film strip */
+#work{background:var(--ink);color:#fff;padding-bottom:70px}
+.work-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.work-head a{font-family:var(--head);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:15px;text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:3px;margin-bottom:28px;transition:color .25s}
+.work-head a:hover{color:var(--blue)}
+.strip{position:relative;background:#0f1012;padding:26px 0;overflow:hidden}
+.strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:12px;
+  background:repeating-linear-gradient(90deg,transparent 0 14px,#2a2c30 14px 30px)}
+.strip::before{top:7px}.strip::after{bottom:7px}
+.track{display:flex;gap:14px;width:max-content;animation:roll 40s linear infinite}
+.strip:hover .track{animation-play-state:paused}
+@keyframes roll{to{transform:translateX(-50%)}}
+.tile{position:relative;display:block;width:230px;aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:#222;flex:none}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .4s;filter:saturate(.9)}
+.tile:hover img{transform:scale(1.08);filter:saturate(1.1)}
+.tile .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .3s;background:rgba(31,33,36,.35)}
+.tile:hover .play{opacity:1}
+.play svg{width:54px;height:54px}
+.strip.empty{display:none}
 
 /* Press */
 .press{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.press a{text-decoration:none;display:block}
-.press img{width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:14px;margin-bottom:12px}
+.press a{text-decoration:none;display:block;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.press a:hover{transform:translateY(-6px)}
+.press img{width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:14px;margin-bottom:12px;transition:box-shadow .35s}
+.press a:hover img{box-shadow:0 14px 30px rgba(31,33,36,.12)}
 .press .date{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
 .press h3{font-family:var(--head);font-weight:700;font-size:19px;margin:2px 0 4px;line-height:1.2}
 .press p{font-size:15px;color:var(--muted);margin:0}
-.press a:hover h3{color:var(--blue)}
+.press .reveal:nth-child(2){transition-delay:.1s}.press .reveal:nth-child(3){transition-delay:.2s}.press .reveal:nth-child(4){transition-delay:.3s}
 
 /* Footer */
 footer{background:var(--ink);color:#c9ccd1;padding:34px 0;font-size:15px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center}
 footer strong{font-family:var(--head);color:#fff;letter-spacing:.08em;text-transform:uppercase;margin-right:auto}
-footer a{text-decoration:none}
+footer a{text-decoration:none;transition:color .2s}
 footer a:hover{color:#fff}
 
 @media (max-width:720px){
+  header img{width:120px;height:120px}
   .grid2{grid-template-columns:1fr;gap:0}
   .press{grid-template-columns:1fr 1fr}
-  header nav{gap:14px;font-size:13px}
-  .ig-frame iframe{height:560px}
+  .tile{width:170px}
+  .rec{top:-50px}
   footer strong{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero li,.hero p,.cta,.reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <a href="./"><img src="images/logo.png" alt="Vids By Vic"></a>
-  <nav>
-    <a href="#contact">Contact</a>
-    <a href="#instagram">Instagram</a>
-    <a href="#press">Press</a>
-  </nav>
+  <img src="images/logo.png" alt="Vids By Vic">
 </header>
 
 <div class="hero">
   <div class="wrap">
-    <p class="kicker">Real life storytellers.</p>
-    <ul>
+    <div class="rec" aria-hidden="true"><i></i>REC <span id="tc">00:00:00</span></div>
+    <ul id="lines">
       <li>Family history films</li>
       <li>Engagement proposals</li>
       <li>Fundraising videos for nonprofits</li>
       <li>Marketing videos for businesses</li>
       <li>And so much more.</li>
     </ul>
-    <p>We help script your story, then film and edit it from start to finish. You envision it, we create it.</p>
-    <a class="cta" href="#contact">Start your video</a>
+    <p>We help script your story, then film and edit it from start to finish. Producing your imagination.</p>
+    <a class="cta" href="#contact">Let's talk <span>&rarr;</span></a>
   </div>
 </div>
 
 <section id="contact">
   <div class="wrap">
-    <div id="form-wrap">
-      <h2>Tell us about your video</h2>
-      <p class="lede">Send us a few details and we'll be in touch.</p>
+    <div id="form-wrap" class="reveal">
+      <h2>Tell us about your vision<span class="bar"></span></h2>
       <form id="inquiry" novalidate>
         <div class="grid2">
           <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
@@ -144,39 +178,31 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
-<section id="instagram">
-  <div class="wrap">
-    <div class="ig-head">
-      <div>
-        <h2>@Vids_By_Vic</h2>
-        <p class="lede" style="margin:0">See what we've been filming.</p>
-      </div>
-      <a href="https://www.instagram.com/vids_by_vic" target="_blank" rel="noopener">Follow on Instagram</a>
-    </div>
-    <div class="ig-frame">
-      <iframe src="https://www.instagram.com/vids_by_vic/embed" title="Vids By Vic on Instagram" loading="lazy" scrolling="no"></iframe>
-    </div>
+<section id="work">
+  <div class="wrap work-head reveal">
+    <h2>Recent work<span class="bar"></span></h2>
+    <a href="https://www.instagram.com/vids_by_vic" target="_blank" rel="noopener">@Vids_By_Vic on Instagram &rarr;</a>
   </div>
+  <div class="strip empty" id="strip"><div class="track" id="track"></div></div>
 </section>
 
 <section id="press">
   <div class="wrap">
-    <h2>Press</h2>
-    <p class="lede">Where Vids By Vic has been featured.</p>
+    <h2 class="reveal">Press<span class="bar"></span></h2>
     <div class="press">
-      <a href="https://www.instagram.com/p/CCbhcQYJeVa/" target="_blank" rel="noopener">
+      <a class="reveal" href="https://www.instagram.com/p/CCbhcQYJeVa/" target="_blank" rel="noopener">
         <img src="images/reload.png" alt="Reload Radio">
         <div class="date">July 2020</div><h3>Reload Radio</h3><p>Episode 004: Recharge with Reload</p>
       </a>
-      <a href="https://nj1015.com/man-sets-his-girlfriends-house-on-fire-in-amazing-marriage-proposal-opinion/" target="_blank" rel="noopener">
+      <a class="reveal" href="https://nj1015.com/man-sets-his-girlfriends-house-on-fire-in-amazing-marriage-proposal-opinion/" target="_blank" rel="noopener">
         <img src="images/nj1015.png" alt="New Jersey 101.5">
         <div class="date">February 2020</div><h3>New Jersey 101.5</h3><p>Man sets his girlfriend's house on fire in amazing marriage proposal</p>
       </a>
-      <a href="https://www.instagram.com/p/BzmPqX-Ale6/" target="_blank" rel="noopener">
+      <a class="reveal" href="https://www.instagram.com/p/BzmPqX-Ale6/" target="_blank" rel="noopener">
         <img src="images/exceed.png" alt="Exceed Spotlight on 30">
         <div class="date">July 2019</div><h3>Exceed "Spotlight on 30"</h3><p>Interview with Victor Dweck of Vids By Vic</p>
       </a>
-      <a href="files/millennium-inc.pdf" target="_blank" rel="noopener">
+      <a class="reveal" href="files/millennium-inc.pdf" target="_blank" rel="noopener">
         <img src="images/millennium.png" alt="Millennium INC Magazine">
         <div class="date">May 2019</div><h3>Millennium INC Magazine</h3><p>Interview with Vids By Vic</p>
       </a>
@@ -195,11 +221,37 @@ footer a:hover{color:#fff}
 </footer>
 
 <script>
-// Paste your Calendly link between the quotes to show booking after a form is sent
-const CALENDLY = '';
+const CALENDLY = 'https://calendly.com/vidsbyvic/15';
 const DESK = 'https://go.vidsbyvic.com/inquire';
 const WEB3 = 'd87d5b63-615f-45db-a394-ddff4c12c7cf';
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Hero: highlight one line at a time
+const lines = [...document.querySelectorAll('#lines li')];
+let cur = -1;
+function step() { lines.forEach(l => l.classList.remove('on')); cur = (cur + 1) % lines.length; lines[cur].classList.add('on'); }
+setTimeout(() => { document.getElementById('lines').classList.add('ready'); step(); if (!calm) setInterval(step, 1400); }, 1300);
+
+// REC timecode
+const tc = document.getElementById('tc'), t0 = Date.now();
+const pad = n => String(n).padStart(2, '0');
+setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); tc.textContent = pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s / 60) % 60) + ':' + pad(s % 60); }, 1000);
+
+// Reveal on scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Instagram film strip
+fetch('https://go.vidsbyvic.com/ig').then(r => r.json()).then(({ posts }) => {
+  if (!posts || !posts.length) return;
+  const play = '<span class="play"><svg viewBox="0 0 54 54"><circle cx="27" cy="27" r="26" fill="none" stroke="#fff" stroke-width="2"/><path d="M22 17l16 10-16 10z" fill="#fff"/></svg></span>';
+  const tiles = posts.map(p => `<a class="tile" href="${p.url}" target="_blank" rel="noopener"><img src="${p.img}" alt="Vids By Vic on Instagram" loading="lazy">${p.video ? play : ''}</a>`).join('');
+  let html = tiles; while ((html.match(/class="tile"/g) || []).length < 12) html += tiles;
+  document.getElementById('track').innerHTML = html + html;
+  document.getElementById('strip').classList.remove('empty');
+}).catch(() => {});
+
+// Inquiry form
 document.getElementById('inquiry').addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.target, note = document.getElementById('note'), btn = f.querySelector('button');
