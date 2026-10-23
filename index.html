@@ -3,173 +3,232 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Home | Vids By Vic</title>
-<meta name="description" content="Vids By Vic — Producing Your Imagination. Scripting, filming, and editing for nonprofits, businesses, families, and proposals.">
+<title>Vids By Vic</title>
+<meta name="description" content="Vids By Vic: family history films, engagement proposals, fundraising videos for nonprofits, marketing videos for businesses, and so much more.">
 <meta property="og:title" content="Vids By Vic">
-<meta property="og:description" content="Producing Your Imagination">
+<meta property="og:description" content="Real life storytellers.">
 <meta property="og:image" content="https://www.vidsbyvic.com/images/og.png">
 <meta property="og:url" content="https://www.vidsbyvic.com">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="images/logo.png">
 <link rel="preload" href="/fonts/BlenderPro-Bold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css">
+<style>
+@font-face{font-family:"Blender Pro";src:url(/fonts/BlenderPro-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+:root{--ink:#1F2124;--blue:#3C66A4;--soft:#f4f5f7;--line:#e2e4e8;--muted:#5a5f66;
+  --head:'Blender Pro',system-ui,sans-serif;--body:Georgia,'Times New Roman',serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;max-width:980px;margin:0 auto;padding:18px 20px}
+header img{width:72px;height:72px;border-radius:50%}
+header nav{display:flex;gap:22px;font-family:var(--head);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+header nav a{text-decoration:none}
+header nav a:hover{color:var(--blue)}
+
+/* Hero */
+.hero{background:var(--ink);color:#fff;padding:72px 0 80px}
+.kicker{font-family:var(--head);font-weight:700;color:var(--blue);letter-spacing:.14em;text-transform:uppercase;font-size:15px;margin:0 0 22px}
+.hero ul{list-style:none;margin:0;padding:0;font-family:var(--head);font-weight:700;font-size:clamp(34px,6.4vw,64px);line-height:1.08;text-transform:uppercase}
+.hero li{border-bottom:1px solid rgba(255,255,255,.12);padding:6px 0}
+.hero li:last-child{color:var(--blue);border:0}
+.hero p{max-width:560px;margin:30px 0 0;color:#c9ccd1}
+.hero .cta{display:inline-block;margin-top:30px;font-family:var(--head);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:16px;color:#fff;text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:4px}
+
+/* Sections */
+section{padding:72px 0}
+h2{font-family:var(--head);font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(30px,4.6vw,44px);line-height:1.1;margin:0 0 10px}
+.lede{color:var(--muted);margin:0 0 34px}
+
+/* Form */
+#contact{border-bottom:1px solid var(--line)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:block;font-family:var(--head);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+input,textarea{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:1px solid #c9ccd1;border-radius:4px;background:#fff;color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+textarea{min-height:150px;resize:vertical}
+.field{margin-bottom:18px}
+.hp{position:absolute;left:-9999px}
+button{font-family:var(--head);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:16px;background:var(--ink);color:#fff;border:0;border-radius:4px;padding:15px 34px;cursor:pointer}
+button:hover{background:var(--blue)}
+button[disabled]{opacity:.6;cursor:wait}
+.note{min-height:24px;margin:12px 0 0;color:#b3261e}
+#thanks{display:none}
+#thanks h2{color:var(--blue)}
+#cal{width:100%;height:700px;border:0;margin-top:10px}
+
+/* Instagram */
+#instagram{background:var(--soft)}
+.ig-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.ig-head a{font-family:var(--head);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:15px;text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:3px}
+.ig-frame{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.ig-frame iframe{display:block;width:100%;height:720px;border:0}
+
+/* Press */
+.press{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.press a{text-decoration:none;display:block}
+.press img{width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:14px;margin-bottom:12px}
+.press .date{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.press h3{font-family:var(--head);font-weight:700;font-size:19px;margin:2px 0 4px;line-height:1.2}
+.press p{font-size:15px;color:var(--muted);margin:0}
+.press a:hover h3{color:var(--blue)}
+
+/* Footer */
+footer{background:var(--ink);color:#c9ccd1;padding:34px 0;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center}
+footer strong{font-family:var(--head);color:#fff;letter-spacing:.08em;text-transform:uppercase;margin-right:auto}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+
+@media (max-width:720px){
+  .grid2{grid-template-columns:1fr;gap:0}
+  .press{grid-template-columns:1fr 1fr}
+  header nav{gap:14px;font-size:13px}
+  .ig-frame iframe{height:560px}
+  footer strong{width:100%}
+}
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <a href="./"><img class="logo" src="images/logo.png" alt="Vids By Vic"></a>
-  <nav class="site-nav">
-    <a href="./" aria-current="page">Home</a>
-    <a href="press/">Press</a>
+<header>
+  <a href="./"><img src="images/logo.png" alt="Vids By Vic"></a>
+  <nav>
+    <a href="#contact">Contact</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#press">Press</a>
   </nav>
 </header>
 
-<main>
-  <div class="hero">
-    <div>
-      <h1>Vids By Vic</h1>
-      <p>Producing Your Imagination</p>
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">Real life storytellers.</p>
+    <ul>
+      <li>Family history films</li>
+      <li>Engagement proposals</li>
+      <li>Fundraising videos for nonprofits</li>
+      <li>Marketing videos for businesses</li>
+      <li>And so much more.</li>
+    </ul>
+    <p>We script, film and edit your story from start to finish. You envision it, we create it.</p>
+    <a class="cta" href="#contact">Start your video</a>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="wrap">
+    <div id="form-wrap">
+      <h2>Tell us about your video</h2>
+      <p class="lede">Send us a few details and we'll be in touch.</p>
+      <form id="inquiry" novalidate>
+        <div class="grid2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="What's the video for?"></textarea></div>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit">Send</button>
+        <p class="note" id="note" aria-live="polite"></p>
+      </form>
+    </div>
+    <div id="thanks">
+      <h2>Thank you!</h2>
+      <p class="lede" id="thanks-line">We got your message and will be in touch soon.</p>
+      <div id="cal-wrap"></div>
     </div>
   </div>
+</section>
 
-  <section class="mission">
-    <div class="wrap">
-      <h2>Mission Statement</h2>
-      <p>Storytelling is a powerful way to communicate our emotions. We help you tell your story by creating a seamless experience through scripting, filming, and editing. At Vids By Vic, we create stellar films.</p>
+<section id="instagram">
+  <div class="wrap">
+    <div class="ig-head">
+      <div>
+        <h2>@Vids_By_Vic</h2>
+        <p class="lede" style="margin:0">See what we've been filming.</p>
+      </div>
+      <a href="https://www.instagram.com/vids_by_vic" target="_blank" rel="noopener">Follow on Instagram</a>
     </div>
-  </section>
-
-
-  <section class="testimonials">
-    <h2>Testimonials</h2>
-    <p class="sub">What some of our recent clients have been saying:</p>
-    <svg class="quote-mark" viewBox="0 0 80 72" fill="none" stroke="#fff" stroke-width="3" aria-hidden="true">
-      <path d="M4 3h30v32c0 17-10 28-26 33l-2-4c9-4 14-11 14-20H4z"/>
-      <path d="M46 3h30v32c0 17-10 28-26 33l-2-4c9-4 14-11 14-20H46z"/>
-    </svg>
-    <div class="slider" id="slider" aria-roledescription="carousel">
-      <button class="prev" aria-label="Previous">&#8249;</button>
-      <div id="slides"></div>
-      <button class="next" aria-label="Next">&#8250;</button>
+    <div class="ig-frame">
+      <iframe src="https://www.instagram.com/vids_by_vic/embed" title="Vids By Vic on Instagram" loading="lazy" scrolling="no"></iframe>
     </div>
-    <div class="dots" id="dots"></div>
-  </section>
+  </div>
+</section>
 
-  <section class="services">
-    <div class="service dark corporate"><div>
-      <h2>Corporate</h2>
-      <p>Let us partner with you in creating videos that helps raise awareness of your brand, bringing your business to the next level.</p>
-    </div></div>
-    <div class="service blue nonprofit"><div>
-      <h2>Non Profits</h2>
-      <p>Together, we will produce films of your organization that help it finally get the recognition it deserves.</p>
-    </div></div>
-    <div class="service light family"><div>
-      <h2>Family</h2>
-      <p>Every family has a unique story that we can document and preserve for future generations.</p>
-    </div></div>
-    <div class="service dark proposals"><div>
-      <h2>Proposals</h2>
-      <p>When you're ready to pop the question, give us a ring so we can help capture your special moment for you to relive over and over again.</p>
-    </div></div>
-  </section>
+<section id="press">
+  <div class="wrap">
+    <h2>Press</h2>
+    <p class="lede">Where Vids By Vic has been featured.</p>
+    <div class="press">
+      <a href="https://www.instagram.com/p/CCbhcQYJeVa/" target="_blank" rel="noopener">
+        <img src="images/reload.png" alt="Reload Radio">
+        <div class="date">July 2020</div><h3>Reload Radio</h3><p>Episode 004: Recharge with Reload</p>
+      </a>
+      <a href="https://nj1015.com/man-sets-his-girlfriends-house-on-fire-in-amazing-marriage-proposal-opinion/" target="_blank" rel="noopener">
+        <img src="images/nj1015.png" alt="New Jersey 101.5">
+        <div class="date">February 2020</div><h3>New Jersey 101.5</h3><p>Man sets his girlfriend's house on fire in amazing marriage proposal</p>
+      </a>
+      <a href="https://www.instagram.com/p/BzmPqX-Ale6/" target="_blank" rel="noopener">
+        <img src="images/exceed.png" alt="Exceed Spotlight on 30">
+        <div class="date">July 2019</div><h3>Exceed "Spotlight on 30"</h3><p>Interview with Victor Dweck of Vids By Vic</p>
+      </a>
+      <a href="files/millennium-inc.pdf" target="_blank" rel="noopener">
+        <img src="images/millennium.png" alt="Millennium INC Magazine">
+        <div class="date">May 2019</div><h3>Millennium INC Magazine</h3><p>Interview with Vids By Vic</p>
+      </a>
+    </div>
+  </div>
+</section>
 
-  <section class="more">
-    <h2>And so much more...</h2>
-    <p>If you have an idea for any type of video, contact us, so we can help you produce your imagination.</p>
-  </section>
-
-  <section class="contact" id="contact">
-    <h2>Let's work together!</h2>
-    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="d87d5b63-615f-45db-a394-ddff4c12c7cf">
-      <input type="hidden" name="subject" value="New message from VidsByVic.com">
-      <input type="hidden" name="from_name" value="VidsByVic.com">
-      <input type="hidden" name="redirect" value="https://vidsbyvic.com/thanks/">
-      <label for="f-name">Name</label>
-      <input id="f-name" name="name" required>
-      <label for="f-email">Email Address</label>
-      <input id="f-email" name="email" type="email" required>
-      <label for="f-phone">Phone Number</label>
-      <input id="f-phone" name="phone" type="tel">
-      <label for="f-msg">What can we help you with?</label>
-      <textarea id="f-msg" name="message" required></textarea>
-      <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
-      <div class="form-actions"><button class="btn" type="submit">Submit</button></div>
-      <p class="form-note" id="form-note" aria-live="polite"></p>
-    </form>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <strong>Vids By Vic</strong>
-  <a class="ig" href="https://www.instagram.com/vids_by_vic" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#111"/></svg>
-    <span style="text-decoration:underline">@Vids_By_Vic</span>
-  </a>
-  <p><a href="mailto:victor@vidsbyvic.com">victor@vidsbyvic.com</a></p>
-  <p><a href="tel:+19178380744">(917) 838-0744</a></p>
-  <p class="copy">© All Rights Reserved</p>
+<footer>
+  <div class="wrap">
+    <strong>Vids By Vic</strong>
+    <a href="https://www.instagram.com/vids_by_vic" target="_blank" rel="noopener">@Vids_By_Vic</a>
+    <a href="mailto:victor@vidsbyvic.com">victor@vidsbyvic.com</a>
+    <a href="tel:+19178380744">(917) 838-0744</a>
+    <span>© Vids By Vic LLC</span>
+  </div>
 </footer>
 
 <script>
-const T=[
-["Your creativity is only matched patience and professionalism. Can’t thank you enough for your work","Sephardic Community Center"],
-["Working with Victor is clean and simple. He understands the project, is in tune with the audience, and quickly produces a high quality film. A pleasure to work with!","Magen David Yeshivah"],
-["Vids by Vic is easy, reliable and really \"gets it\" - it's a no-brainer for organizations like SBH who hope to quickly deliver a quality product to our community members.","Sephardic Bikur Holim"],
-["Victor is a true professional. He is organized, understands the needs of his clients and ultimately delivers a product based on your goals. Victor is diligent and meticulous, working closely with his clients in order to ensure their needs are met. Victor is a pleasure to work with!","Yeshivah of Flatbush"],
-["We had the pleasure of working with Vids By Vic on a series of corporate recruitment videos. Victor was professional, efficient, and friendly during filming and was great to work with throughout the editing process. We were very happy with the final videos and have received great feedback from employees and potential candidates. We highly recommend him and his team – and hope to work with them again soon!","VCNY Home"],
-["Victor was incredibly professional throughout, had a clear vision for how to approach our video project and executed to perfection, and on time. We used his services for both archival footage, and new production and he hit a home run with both projects. I look forward to working with him again.","SAFE Foundation"],
-["Victor’s attention to the urgency of what I needed to get done quickly was amazing. He listened attentively to my needs and then added his professional expertise to put together a spectacular promotional video. His video changed my business forever!","Camp Allsport"],
-["Vic, thank you for your incredible work on our fundraising video. Needless to say, it was done to perfection, you created the perfect story line and sent our message across so fluidly. Working with you was an absolute pleasure, done with great communication, timing, and professionalism. Thank you again, and looking forward to more projects together.","Sephardic Heritage Museum"],
-["Victor's deep commitment to every project ensure's smashing success! He makes it all look so seamless and easy!","Allegra Franco Women's Bet Midrash"],
-["Vic and his team are professional and enthusiastic, which is manifested in the footage they put out. Moreover they are super easy to work with!","Albert Missry Foundation"],
-["Our recent video was professionally handled by Vids by Vic and we could not have been prouder when we presented it at the service. Victor perfectly aligned all the video interviewees, navigating individuals busy schedule to get it done right. On top of it, it was so perfect, it was all done in one draft! I would definitely use Victor again for any upcoming event we have.","Congregation Beth Torah"],
-["Working with Vids by Vic was an amazing experience. Quick, efficient and gets the job done. I would love to recommend them to everyone. It was really a pleasure. Thank you!","Yeshivat Lev Aharon"],
-["Vids By Vic handled everything from filming to editing in the most professional way. It was a completely stress free experience. Victor really understood what we were looking for and delivered an excellent and heartwarming video, in a very short amount of time.","Yad Yosef Torah Center"],
-["Victor is a true professional. Not only was the final video spectacular, but even more importantly, he made the process very seamless. He understood what we wanted for the final result and made it happen. Ask me to rate him 1 out of 10, and he gets a 20!!","Deal Sephardic Network"],
-["PROPEL needed a video for a fundraiser, and a series of marketing campaign videos that were shorter in length. Victor immediately understood the message and created a working plan that structured our project. Despite many schedule and venue changes, he kept the project on task. Victors professionalism and ability to put people at ease before the camera was exceptional. The video was the highlight of our event and our instagram marketing campaign has helped our company gain a following.","PROPEL Network"],
-["Extremely flexible and easy to work with crew, with great end results!","Unique Designs"],
-["Victor is genuine professional and a pleasure to work with.","The Well"],
-["You and your staff are professional, courteous, and easy to work with. The camerawork was extraordinary, and you showed great creativity in editing the finished piece. Our product came to life in a way that we never imagined possible! Kudos to Victor Dweck for such great work. We look forward to working with Vids by Vic again soon.","Hillel Yeshivah"],
-["Vic is a pleasure to work with. He is knowledgeable, friendly, with excellent vision. Vic brings your ideas to life! We highly recommend!","Hatzalah"],
-["Not only a creative, professional, hard working, reliable and trust worthy company, Vids by Vic makes it fun to do. Strong on ideas and problem solving and their editing and end product raises the presentation to the highest level imaginative.","Sephardic Rabbinical College"],
-["Vids by Vic took excellent and very moving video footage of our client's experiences with our organization. Thank you for being professional and easy to work with.","Morris I Franco Cancer Center"],
-["It was an absolute pleasure working with Vic. He was extremely professional throughout the entire process and has a great eye. Everything was done in a very timely manner as well!","CocoBox"],
-["Victor and his team was a pleasure to work with! Professional, patient and courteous .. all around A+","CARE for Special Needs Children"],
-["The Vids by Vic team is the New York Yankees of film. Professional, talented, and consistently producing. They turned simple interview videos into masterpieces. Not to mention - the turnaround time is incredible! 5 stars!","From The Founder"],
-["Victor understood the mission statement of our school. He was able to articulate and bring out the message in a very professional way. We had such great feedback from our constituents. I am absolutely going to recommend him for any one in need of a video!","Yeshivat Magen Abraham"],
-["Working with Vic is a fun experience. He has all the qualifications you expect from a professional company. Thanks for all your help!","Camp J.D.S.A."],
-["Vic and his team are professional and always on time. They have the necessary experience to cut through the baloney and ask the correct questions and edit properly as well as coordinate other interviewers and choreography properly.","Moreshet Yerushalayim"],
-["Vids by Vic captured it all in 1 minute. Vids by Vic is reliable and easy to work with, you know you are in great hands with Vids By Vic. Promotion video kick started my business!","Doin' It Sports"],
-["Victor (a.k.a. Vids by Vic) has always been a pleasure to work with. He always invested in the best equipment, personally involved himself in the shoot and editing, and guided us to produce the best results. We always look forward to more ideas as he continues to grow.","Tanach Study"],
-["Victor was a total professional and a pleasure to work with. The quality of his work greatly exceeded our expectations and we hope to use his services again in the near future!","Upside Basketball Camp"]
-];
-const slides=document.getElementById('slides'),dots=document.getElementById('dots');
-T.forEach(([q,w],i)=>{
-  const s=document.createElement('div');s.className='slide';
-  s.innerHTML='<p></p><cite></cite>';s.querySelector('p').textContent=q;s.querySelector('cite').textContent='- '+w;
-  slides.appendChild(s);
-  const d=document.createElement('button');d.setAttribute('aria-label','Testimonial '+(i+1));d.onclick=()=>{go(i);restart()};dots.appendChild(d);
-});
-let cur=0,timer;
-function go(i){cur=(i+T.length)%T.length;[...slides.children].forEach((s,k)=>s.classList.toggle('active',k===cur));[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===cur))}
-function restart(){clearInterval(timer);timer=setInterval(()=>go(cur+1),7000)}
-document.querySelector('.slider .prev').onclick=()=>{go(cur-1);restart()};
-document.querySelector('.slider .next').onclick=()=>{go(cur+1);restart()};
-go(0);restart();
+// Paste your Calendly link between the quotes to show booking after a form is sent
+const CALENDLY = '';
+const DESK = 'https://go.vidsbyvic.com/inquire';
+const WEB3 = 'd87d5b63-615f-45db-a394-ddff4c12c7cf';
 
-document.getElementById('contact-form').addEventListener('submit',async e=>{
+document.getElementById('inquiry').addEventListener('submit', async e => {
   e.preventDefault();
-  const f=e.target,note=document.getElementById('form-note'),btn=f.querySelector('button');
-  btn.disabled=true;note.textContent='Sending...';
-  const c=new AbortController();const t=setTimeout(()=>c.abort(),15000);
-  try{
-    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f),signal:c.signal});
-    const j=await r.json();if(!j.success)throw 0;
-    location.href='/thanks/';
-  }catch(_){note.textContent='Something went wrong. Please email victor@vidsbyvic.com.';btn.disabled=false}
-  clearTimeout(t);
+  const f = e.target, note = document.getElementById('note'), btn = f.querySelector('button');
+  const d = Object.fromEntries(new FormData(f));
+  if (!d.name.trim() || !d.email.trim() || !f.elements.email.checkValidity()) {
+    note.textContent = 'Please add your name and a valid email.'; return;
+  }
+  note.textContent = ''; btn.disabled = true; btn.textContent = 'Sending...';
+  const toDesk = fetch(DESK, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(d) }).then(r => r.ok);
+  const toEmail = d.website ? Promise.resolve(true) : fetch('https://api.web3forms.com/submit', {
+    method: 'POST', headers: { 'content-type': 'application/json', 'accept': 'application/json' },
+    body: JSON.stringify({ access_key: WEB3, subject: 'New inquiry from vidsbyvic.com', from_name: 'Vids By Vic Website', name: d.name, email: d.email, phone: d.phone, message: d.message })
+  }).then(r => r.ok);
+  const res = await Promise.allSettled([toDesk, toEmail]);
+  if (!res.some(r => r.status === 'fulfilled' && r.value)) {
+    btn.disabled = false; btn.textContent = 'Send';
+    note.textContent = 'Something went wrong. Please call or text (917) 838-0744.'; return;
+  }
+  document.getElementById('form-wrap').style.display = 'none';
+  document.getElementById('thanks').style.display = 'block';
+  if (CALENDLY) {
+    document.getElementById('thanks-line').textContent = 'We got your message. Pick a time below for a quick call.';
+    const u = new URL(CALENDLY);
+    u.searchParams.set('name', d.name); u.searchParams.set('email', d.email);
+    u.searchParams.set('hide_gdpr_banner', '1');
+    const fr = document.createElement('iframe'); fr.id = 'cal'; fr.src = u.toString(); fr.title = 'Book a call';
+    document.getElementById('cal-wrap').appendChild(fr);
+  }
+  document.getElementById('contact').scrollIntoView();
 });
 </script>
 </body>
