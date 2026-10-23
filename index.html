@@ -24,8 +24,8 @@ a{color:inherit}
 .wrap{max-width:980px;margin:0 auto;padding:0 20px}
 
 /* Header */
-header{display:flex;align-items:center;justify-content:space-between;max-width:980px;margin:0 auto;padding:18px 20px}
-header img{width:72px;height:72px;border-radius:50%}
+header{display:flex;justify-content:center;padding:28px 20px}
+header img{width:150px;height:150px;border-radius:50%}
 header nav{display:flex;gap:22px;font-family:var(--head);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
 header nav a{text-decoration:none}
 header nav a:hover{color:var(--blue)}
@@ -43,6 +43,7 @@ header nav a:hover{color:var(--blue)}
 section{padding:72px 0}
 h2{font-family:var(--head);font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(30px,4.6vw,44px);line-height:1.1;margin:0 0 10px}
 .lede{color:var(--muted);margin:0 0 34px}
+#contact h2,#press h2{margin-bottom:28px}
 
 /* Form */
 #contact{border-bottom:1px solid var(--line)}
@@ -97,11 +98,6 @@ footer a:hover{color:#fff}
 
 <header>
   <a href="./"><img src="images/logo.png" alt="Vids By Vic"></a>
-  <nav>
-    <a href="#contact">Contact</a>
-    <a href="#instagram">Instagram</a>
-    <a href="#press">Press</a>
-  </nav>
 </header>
 
 <div class="hero">
@@ -114,16 +110,15 @@ footer a:hover{color:#fff}
       <li>Marketing videos for businesses</li>
       <li>And so much more.</li>
     </ul>
-    <p>We script, film and edit your story from start to finish. You envision it, we create it.</p>
-    <a class="cta" href="#contact">Start your video</a>
+    <p>We script, film and edit your story from start to finish. Producing your imagination.</p>
+    <a class="cta" href="#contact">Let's talk</a>
   </div>
 </div>
 
 <section id="contact">
   <div class="wrap">
     <div id="form-wrap">
-      <h2>Tell us about your video</h2>
-      <p class="lede">Send us a few details and we'll be in touch.</p>
+      <h2>Tell us about your vision</h2>
       <form id="inquiry" novalidate>
         <div class="grid2">
           <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
@@ -149,7 +144,7 @@ footer a:hover{color:#fff}
     <div class="ig-head">
       <div>
         <h2>@Vids_By_Vic</h2>
-        <p class="lede" style="margin:0">See what we've been filming.</p>
+        <p class="lede" style="margin:0">Recent work.</p>
       </div>
       <a href="https://www.instagram.com/vids_by_vic" target="_blank" rel="noopener">Follow on Instagram</a>
     </div>
@@ -162,7 +157,6 @@ footer a:hover{color:#fff}
 <section id="press">
   <div class="wrap">
     <h2>Press</h2>
-    <p class="lede">Where Vids By Vic has been featured.</p>
     <div class="press">
       <a href="https://www.instagram.com/p/CCbhcQYJeVa/" target="_blank" rel="noopener">
         <img src="images/reload.png" alt="Reload Radio">
@@ -196,7 +190,7 @@ footer a:hover{color:#fff}
 
 <script>
 // Paste your Calendly link between the quotes to show booking after a form is sent
-const CALENDLY = 'https://calendly.com/vidsbyvic/15';
+const CALENDLY = '';
 const DESK = 'https://go.vidsbyvic.com/inquire';
 const WEB3 = 'd87d5b63-615f-45db-a394-ddff4c12c7cf';
 
